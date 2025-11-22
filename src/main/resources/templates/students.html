@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Студенти</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h2>Список студентів</h2>
+
+<div class="info-box">
+  <strong>Всього студентів:</strong> <span th:text="${#lists.size(students)}"></span>
+</div>
+
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Ім'я</th>
+    <th>Телефон</th>
+    <th>Рік</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="student : ${students}">
+    <td th:text="${student.id}"></td>
+    <td th:text="${student.name}"></td>
+    <td th:text="${student.phone}"></td>
+    <td th:text="${student.year}"></td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="nav-links">
+  <a href="/admin">← Назад до адмін панелі</a>
+</div>
+</body>
+</html>

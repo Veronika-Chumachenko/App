@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Панель адміністратора</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+  <h2>Панель адміністратора</h2>
+
+  <div class="user-info" th:if="${#authentication}">
+    <p><strong>Користувач:</strong> <span th:text="${#authentication.name}"></span></p>
+    <p><strong>Ролі:</strong> <span th:text="${#authentication.authorities}"></span></p>
+  </div>
+
+  <nav>
+    <h3>Адміністративні функції:</h3>
+    <ul>
+      <li><a href="/web/students">Управління студентами</a></li>
+      <li><a href="/web/instructors">Управління інструкторами</a></li>
+      <li><a href="/web/groups">Управління групами</a></li>
+      <li><a href="/web/lessons">Управління заняттями</a></li>
+    </ul>
+  </nav>
+
+  <div class="nav-links">
+    <a href="/main">На головну</a>
+    <a th:href="@{/logout}">Вийти</a>
+  </div>
+</div>
+</body>
+</html>

@@ -14,11 +14,6 @@ import java.util.List;
 public class InstructorServiceImpl implements InstructorService {
     private final InstructorRepository instructorRepository;
 
-    @Autowired
-    public InstructorServiceImpl(InstructorRepository instructorRepository) {
-        this.instructorRepository = instructorRepository;
-    }
-
     @Override
     public Instructor createInstructor(Instructor instructor) {
         return instructorRepository.save(instructor);

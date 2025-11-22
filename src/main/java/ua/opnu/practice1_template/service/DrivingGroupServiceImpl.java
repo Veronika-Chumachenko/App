@@ -17,12 +17,6 @@ public class DrivingGroupServiceImpl implements DrivingGroupService {
     private final DrivingGroupRepository groupRepository;
     private final StudentRepository studentRepository;
 
-    @Autowired
-    public DrivingGroupServiceImpl(DrivingGroupRepository groupRepository, StudentRepository studentRepository) {
-        this.groupRepository = groupRepository;
-        this.studentRepository = studentRepository;
-    }
-
     @Override
     public DrivingGroup createGroup(DrivingGroup group) {
         return groupRepository.save(group);

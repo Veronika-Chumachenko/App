@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Інструктори</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h2>Список інструкторів</h2>
+
+<div class="info-box">
+  <strong>Всього інструкторів:</strong> <span th:text="${#lists.size(instructors)}"></span>
+</div>
+
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Ім'я</th>
+    <th>Досвід (років)</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="instructor : ${instructors}">
+    <td th:text="${instructor.id}"></td>
+    <td th:text="${instructor.name}"></td>
+    <td th:text="${instructor.experienceYears}"></td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="nav-links">
+  <a href="/admin">← Назад до адмін панелі</a>
+</div>
+</body>
+</html>

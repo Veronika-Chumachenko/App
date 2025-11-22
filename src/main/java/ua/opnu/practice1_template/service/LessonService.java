@@ -10,6 +10,6 @@ public interface LessonService {
     Lesson getLessonById(Long id);
     Lesson updateLesson(Long id, Lesson updatedLesson);
     List<Lesson> getFutureLessons();
-
+    List<Lesson> getAllLessons();
 }
 

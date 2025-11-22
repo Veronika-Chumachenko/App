@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Групи</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h2>Список груп</h2>
+
+<div class="info-box">
+  <strong>Всього груп:</strong> <span th:text="${#lists.size(groups)}"></span>
+</div>
+
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Код групи</th>
+    <th>Інструктор</th>
+    <th>Кількість студентів</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="group : ${groups}">
+    <td th:text="${group.id}"></td>
+    <td th:text="${group.code}"></td>
+    <td th:text="${group.instructor?.name} ?: 'Не призначено'"></td>
+    <td th:text="${#lists.size(group.students)}"></td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="nav-links">
+  <a href="/admin">← Назад до адмін панелі</a>
+</div>
+</body>
+</html>

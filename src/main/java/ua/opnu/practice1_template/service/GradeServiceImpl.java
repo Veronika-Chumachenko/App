@@ -20,12 +20,6 @@ public class GradeServiceImpl implements GradeService {
     private final StudentRepository studentRepository;
     private final LessonRepository lessonRepository;
 
-    @Autowired
-    public GradeServiceImpl(GradeRepository gradeRepository, StudentRepository studentRepository, LessonRepository lessonRepository) {
-        this.gradeRepository = gradeRepository;
-        this.studentRepository = studentRepository;
-        this.lessonRepository = lessonRepository;
-    }
 
     @Override
     public Grade createGrade(Grade grade) {

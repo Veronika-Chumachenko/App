@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Головна сторінка</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <h2>Ласкаво просимо до автошколи!</h2>
+
+    <div class="user-info" th:if="${username}">
+        <p><strong>Користувач:</strong> <span th:text="${username}"></span></p>
+        <p><strong>Ролі:</strong> <span th:text="${roles}"></span></p>
+    </div>
+
+    <nav>
+        <h3>Меню навігації:</h3>
+        <ul>
+            <li><a th:href="@{/admin}">Панель адміністратора</a></li>
+            <li><a th:href="@{/user}">Панель користувача</a></li>
+        </ul>
+    </nav>
+
+    <div class="nav-links">
+        <a th:href="@{/logout}">Вийти</a>
+    </div>
+</div>
+</body>
+</html>

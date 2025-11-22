@@ -1,7 +1,6 @@
 package ua.opnu.practice1_template.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.opnu.practice1_template.entity.Student;
 import ua.opnu.practice1_template.exception.ResourceNotFoundException;
@@ -13,11 +12,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class StudentServiceImpl implements StudentService {
     private final StudentRepository studentRepository;
-
-    @Autowired
-    public StudentServiceImpl(StudentRepository studentRepository) {
-        this.studentRepository = studentRepository;
-    }
 
     @Override
     public Student createStudent(Student student) {
@@ -41,6 +35,7 @@ public class StudentServiceImpl implements StudentService {
         Student existingStudent = getStudentById(id);
         existingStudent.setName(updatedStudent.getName());
         existingStudent.setPhone(updatedStudent.getPhone());
+        existingStudent.setYear(updatedStudent.getYear());
         return studentRepository.save(existingStudent);
     }
 

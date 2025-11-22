@@ -18,12 +18,6 @@ public class LessonServiceImpl implements LessonService {
     private final LessonRepository lessonRepository;
     private final DrivingGroupRepository groupRepository;
 
-    @Autowired
-    public LessonServiceImpl(LessonRepository lessonRepository, DrivingGroupRepository groupRepository) {
-        this.lessonRepository = lessonRepository;
-        this.groupRepository = groupRepository;
-    }
-
     @Override
     public Lesson createLesson(Lesson lesson) {
         return lessonRepository.save(lesson);
@@ -62,5 +56,10 @@ public class LessonServiceImpl implements LessonService {
         return lessonRepository.findByDateAfter(LocalDate.now());
     }
 
+
+    @Override
+    public List<Lesson> getAllLessons() {
+        return (List<Lesson>) lessonRepository.findAll();
+    }
 
 }

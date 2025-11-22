@@ -17,9 +17,10 @@ import java.util.List;
 public class DrivingGroup {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "code")
     private String code;
 
     @ManyToOne
@@ -33,8 +34,8 @@ public class DrivingGroup {
     @OneToMany
     @JoinTable(
             name = "group_student",
-            joinColumns = @JoinColumn(name = "group_id"),
-            inverseJoinColumns = @JoinColumn(name = "student_id")
+            joinColumns = @JoinColumn(name = "group_id", nullable=false),
+            inverseJoinColumns = @JoinColumn(name = "student_id", nullable=false)
     )
     private List<Student> students = new ArrayList<>();
 

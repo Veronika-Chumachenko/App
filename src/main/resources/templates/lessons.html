@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Заняття</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h2>Список занять</h2>
+
+<div class="info-box">
+    <strong>Всього занять:</strong> <span th:text="${#lists.size(lessons)}"></span>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Тема</th>
+        <th>Дата</th>
+        <th>Група</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="lesson : ${lessons}">
+        <td th:text="${lesson.id}"></td>
+        <td th:text="${lesson.topic}"></td>
+        <td th:text="${lesson.date}"></td>
+        <td th:text="${lesson.group?.code} ?: 'Не призначено'"></td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="nav-links">
+    <a href="/admin">← Назад до адмін панелі</a>
+</div>
+</body>
+</html>
